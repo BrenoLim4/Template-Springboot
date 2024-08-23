@@ -1,0 +1,17 @@
+#networks:
+#  doc_digital_net:
+#    driver: bridge
+#    name: doc-digital-net
+#    external: true
+services:
+  convenios-api:
+    container_name: "convenios-api"
+    image: convenios-image
+    build:
+      dockerfile: Dockerfile
+      context: .
+#    networks:
+#      - doc_digital_net
+    ports:
+      - "8093:8093"
+    restart: unless-stopped
